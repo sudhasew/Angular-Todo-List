@@ -22,10 +22,21 @@ export class TodosComponent {
         description: 'This is all about desc 2.',
         active: false,
       },
+      {
+        id: 3,
+        title: 'This is Title 3',
+        description: 'This is all about desc 3.',
+        active: true,
+      },
     ];
   }
   deleteTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
+  }
+
+  addTodo(todo: Todo) {
+    console.log(todo);
+    this.todos.push(todo);
   }
 }

@@ -1,8 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 
-.container {
+body {
+  overflow: hidden;
+}
+
+.nav-container {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
+}
+
+.todoTitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.todoContainer,
+.noTodos {
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+  max-width: 600px;
+  overflow: scroll;
+  height: 250px;
+}
+
+.single-todo {
+  margin-top: 5px;
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.yourTodos {
+  text-align: center;
+}
+
+.container-form {
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.noTodos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
 }
