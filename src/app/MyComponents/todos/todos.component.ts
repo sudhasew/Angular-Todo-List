@@ -7,36 +7,31 @@ import { Todo } from 'src/app/Todo';
   styleUrls: ['./todos.component.css'],
 })
 export class TodosComponent {
+  localItem: string | null;
   todos: Todo[];
   constructor() {
-    this.todos = [
-      {
-        id: 1,
-        title: 'This is Title',
-        description: 'This is all about desc.',
-        active: true,
-      },
-      {
-        id: 2,
-        title: 'This is Title 2',
-        description: 'This is all about desc 2.',
-        active: false,
-      },
-      {
-        id: 3,
-        title: 'This is Title 3',
-        description: 'This is all about desc 3.',
-        active: true,
-      },
-    ];
+    this.localItem = localStorage.getItem('todos');
+    if (this.localItem == null) {
+      this.todos = [];
+    } else {
+      this.todos = JSON.parse(this.localItem);
+    }
   }
   deleteTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
   addTodo(todo: Todo) {
     console.log(todo);
     this.todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
+  toggleTodo(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    this.todos[index].active = !this.todos[index].active;
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 }

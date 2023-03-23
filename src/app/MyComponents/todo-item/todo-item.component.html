@@ -1,7 +1,24 @@
 <div class="single-todo">
-  <h5>{{ todo.title }}</h5>
-  <p>{{ todo.description }}</p>
-  <button class="btn btn-sm btn-danger mb-2" (click)="onClick(todo)">
-    Delete
-  </button>
+  <div>
+    <h5 class="todo-Title mb-3" [ngClass]="{ strike: !todo.active }">
+      {{ todo.title }}
+    </h5>
+    <p class="todo-desc" [ngClass]="{ strike: !todo.active }">
+      {{ todo.description }}
+    </p>
+
+    <input
+      type="checkbox"
+      class="form-check-input checkbox"
+      id="todo{{ i + 1 }}"
+      (click)="onCheckBox(todo)"
+      [checked]="!todo.active"
+    />
+    <label class="form-check-label" for="todo{{ i + 1 }}">Done</label>
+  </div>
+  <div class="delete-btn">
+    <button class="btn btn-sm btn-danger mb-2" (click)="onClick(todo)">
+      Delete
+    </button>
+  </div>
 </div>
