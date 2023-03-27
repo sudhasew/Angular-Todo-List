@@ -1,15 +1,1 @@
-.todo-Title,
-.todo-desc {
-  color: green;
-  text-transform: uppercase;
-}
 
-.checkbox {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.strike {
-  text-decoration: line-through;
-  color: red;
-}
